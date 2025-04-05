@@ -57,6 +57,11 @@
             background-color: black;
             color: white;
         }
+        .message {
+            color: white;
+            margin-top: 10px;
+            font-size: 14px;
+        }
     </style>
     <script>
         let floweyState = 0;
@@ -65,14 +70,49 @@
             const textbox = document.querySelector('.textbox');
             const img = document.querySelector('img');
             const title = document.querySelector('title');
+            const message = document.querySelector('.message');
             const text = textbox.value.toLowerCase();
+            message.textContent = '';
 
             if (text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) {
                 floweyState = 1;
                 img.src = 'assets/FloweyGrin.png';
-            } else if (text.includes('you') && text.includes('are') && text.includes('an') && text.includes('idiot')) {
+            } else if (text.includes('i') && text.includes('hate') && text.includes('you')) {
+                floweyState = 2;
+                img.src = 'assets/FloweySassy.png';
+            } else if (text.includes('i') && text.includes('want') && text.includes('you')) {
+                floweyState = 3;
+                img.src = 'assets/FloweyHides.gif';
+                message.textContent = 'Flowey is scared of you.';
+            } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
                 floweyState = 4;
-                img.src = 'assets/FloweySkull.png';
+                img.src = 'assets/FloweyToriel2.png';
+            } else if (text.includes('it\'s') && text.includes('me') && text.includes('chara')) {
+                floweyState = 4;
+                img.src = 'assets/FloweySkullMouth.png';
+            } else if (text.includes('remember') && text.includes('are') && text.includes('plan') && floweyState == 4) {
+                floweyState = 5;
+                img.src = 'assets/FloweyPissed.png';
+            } else if (text.includes('you') && text.includes('failed') && floweyState == 5) {
+                img.src = 'assets/FloweyHides.gif';
+                message.textContent = 'Flowey is scared of you.';
+            } else if (text.includes('asriel') && text.includes('everything') && text.includes('okay')) {
+                floweyState = 6;
+                img.src = 'assets/FloweySide.png';
+            } else if (text.includes('stop') && text.includes('relax') && floweyState == 6) {
+                floweyState = 7;
+                img.src = 'assets/FloweyPissed.png';
+            } else if (text.includes('relax')) {
+                if (floweyState == 7) {
+                    floweyState = 8;
+                    img.src = 'assets/FloweySide.png';
+                } else if (floweyState == 8) {
+                    floweyState = 9;
+                    img.src = 'assets/FloweyNice.png';
+                    message.textContent = 'You calmed Flowey.';
+                    img.style.animation = 'none';
+                    title.textContent = 'Flowey | Calmed Down';
+                }
             } else if (text.includes('press f1 for help')) {
                 floweyState = 0;
                 img.src = 'assets/FloweyNice.png';
@@ -92,5 +132,6 @@
         <input type="text" class="textbox" placeholder="">
         <button class="button" onclick="handleButtonClick()">Tell Flowey</button>
     </div>
+    <div class="message"></div>
 </body>
 </html>
