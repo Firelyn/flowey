@@ -70,6 +70,7 @@
         let floweyState = 0;
 
         function handleButtonClick() {
+            message.textContent = 'Calm down the Flowey.';
             const textbox = document.querySelector('.textbox');
             const img = document.querySelector('img');
             const title = document.querySelector('title');
@@ -143,7 +144,6 @@
                 }
             } else {
                 img.src = 'assets/FloweyWink.png';
-                message.textContent = 'Calm down the Flowey.';
                 title.textContent = 'Flowey | Not Calmed';
             }
 
