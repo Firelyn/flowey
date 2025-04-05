@@ -14,15 +14,13 @@
             margin: 0;
             background-color: #000000;
             flex-direction: column;
-            position: relative;
         }
         .container {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            margin-top: 20px;
+            flex-direction: column;
         }
         img {
             image-rendering: pixelated;
@@ -44,12 +42,12 @@
             color: #000000;
             font-size: 12px;
             outline: none;
-            margin-top: 10px;
         }
         .textbox {
-            margin-bottom: 10px;
+            margin-right: 10px;
         }
         .button {
+            margin-left: 10px;
             cursor: pointer;
         }
         .button:hover {
@@ -136,11 +134,11 @@
     </script>
 </head>
 <body>
+    <img src="assets/FloweySassy.png" alt="Flowey">
     <div class="container">
-        <img src="assets/FloweySassy.png" alt="Flowey">
         <input type="text" class="textbox" placeholder="">
         <button class="button" onclick="handleButtonClick()">Tell Flowey</button>
-        <div class="message"></div>
     </div>
+    <div class="message"></div>
 </body>
 </html>
