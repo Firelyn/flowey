@@ -26,6 +26,9 @@
             width: 175px;
             animation: shake 0.1s infinite;
         }
+        .stopped {
+            animation: none !important;
+        }
         @keyframes shake {
             0% { transform: translate(0, 0); }
             25% { transform: translate(2px, 2px); }
@@ -74,6 +77,10 @@
             const text = textbox.value.toLowerCase();
             message.textContent = '';
 
+            if (floweyState === 3) {
+                return;
+            }
+
             if (text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) {
                 floweyState = 1;
                 img.src = 'assets/FloweyGrin.png';
@@ -84,6 +91,7 @@
                 floweyState = 3;
                 img.src = 'assets/FloweyHides.gif';
                 message.textContent = 'Flowey is scared of you.';
+                img.classList.add('stopped');
             } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
                 floweyState = 4;
                 img.src = 'assets/FloweyToriel2.png';
@@ -94,8 +102,10 @@
                 floweyState = 5;
                 img.src = 'assets/FloweyPissed.png';
             } else if (text.includes('you') && text.includes('failed') && floweyState == 5) {
+                floweyState = 3;
                 img.src = 'assets/FloweyHides.gif';
                 message.textContent = 'Flowey is scared of you.';
+                img.classList.add('stopped');
             } else if (text.includes('asriel') && text.includes('everything') && text.includes('okay')) {
                 floweyState = 6;
                 img.src = 'assets/FloweySide.png';
