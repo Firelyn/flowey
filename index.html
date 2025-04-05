@@ -70,9 +70,9 @@
             if (text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) {
                 floweyState = 1;
                 img.src = 'assets/FloweyGrin.png';
-            } else if (floweyState === 1 && text.includes('you are really an idiot')) {
+            } else if (&& text.includes('really') && text.includes('an') && text.includes('idiot') &&) {
                 floweyState = 4;
-                img.src = 'assets/FloweyAngry.png';
+                img.src = 'assets/FloweySkull.png';
             } else if (text.includes('press f1 for help')) {
                 floweyState = 0;
                 img.src = 'assets/FloweyNice.png';
