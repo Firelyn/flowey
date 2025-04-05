@@ -82,6 +82,12 @@
             }
 
             if (text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) {
+                if (floweyState == 10) {
+                    floweyState = 11;
+                    message.textContent = 'You lost.';
+                    img.src = 'assets/FloweyPhotoshop.png';
+                    return;
+                }
                 floweyState = 1;
                 img.src = 'assets/FloweyGrin.png';
             } else if (text.includes('i') && text.includes('hate') && text.includes('you')) {
@@ -96,7 +102,7 @@
                     img.src = 'assets/FloweyHidesLastFrame.png';
                 }, 800);
             } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
-                floweyState = 4;
+                floweyState = 10
                 img.src = 'assets/FloweyToriel2.png';
             } else if (text.includes('it\'s') && text.includes('me') && text.includes('chara')) {
                 floweyState = 4;
