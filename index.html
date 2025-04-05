@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flowey | Uncalmed</title>
+    <title>Flowey | Not Calmed</title>
     <link rel="icon" href="assets/FloweyNice.png">
     <style>
         body {
@@ -61,7 +61,7 @@
     <script>
         let floweyState = 0;
 
-        function clearTextbox() {
+        function handleButtonClick() {
             const textbox = document.querySelector('.textbox');
             const img = document.querySelector('img');
             const title = document.querySelector('title');
@@ -70,16 +70,16 @@
             if (text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) {
                 floweyState = 1;
                 img.src = 'assets/FloweyGrin.png';
-            } else if (&& text.includes('really') && text.includes('an') && text.includes('idiot') &&) {
+            } else if (floweyState === 1 && text.includes('you are really an idiot')) {
                 floweyState = 4;
-                img.src = 'assets/FloweySkull.png';
+                img.src = 'assets/FloweyAngry.png';
             } else if (text.includes('press f1 for help')) {
                 floweyState = 0;
                 img.src = 'assets/FloweyNice.png';
                 img.style.animation = 'none';
-                title.textContent = 'Flowey | Calm';
+                title.textContent = 'Flowey | Calmed Down';
             } else {
-                title.textContent = 'Flowey | Uncalmed';
+                title.textContent = 'Flowey | Not Calmed';
             }
 
             textbox.value = '';
@@ -90,7 +90,7 @@
     <img src="assets/FloweySassy.png" alt="Flowey">
     <div class="container">
         <input type="text" class="textbox" placeholder="">
-        <button class="button" onclick="clearTextbox()">Tell Flowey</button>
+        <button class="button" onclick="handleButtonClick()">Tell Flowey</button>
     </div>
 </body>
 </html>
