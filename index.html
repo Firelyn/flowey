@@ -13,14 +13,32 @@
             height: 100vh;
             margin: 0;
             background-color: #000000;
+            flex-direction: column;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
         img {
             max-width: 100%;
             height: auto;
+            width: 200;
+        }
+        .textbox {
+            margin-right: 10px;
+        }
+        .button {
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
     <img src="assets/FloweySassy.png" alt="Flowey">
+    <div class="container">
+        <input type="text" class="textbox" placeholder="">
+        <button class="button">Tell Flowey</button>
+    </div>
 </body>
 </html>
