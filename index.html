@@ -93,8 +93,8 @@
                 message.textContent = 'Flowey is scared of you.';
                 img.classList.add('stopped');
                 setTimeout(() => {
-                    img.src = 'assets/FloweyHides_last_frame.png'; // Replace with the last frame image
-                }, 3000); // Adjust the timeout duration based on the GIF length
+                    img.src = 'assets/FloweyHidesLastFrame.png';
+                }, 1000);
             } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
                 floweyState = 4;
                 img.src = 'assets/FloweyToriel2.png';
@@ -111,7 +111,7 @@
                 img.classList.add('stopped');
                 setTimeout(() => {
                     img.src = 'assets/FloweyHidesLastFrame.png';
-                }, 3000); // Adjust the timeout duration based on the GIF length
+                }, 1000);
             } else if (text.includes('asriel') && text.includes('everything') && text.includes('okay')) {
                 floweyState = 6;
                 img.src = 'assets/FloweySide.png';
