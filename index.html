@@ -20,7 +20,6 @@
             justify-content: center;
             align-items: center;
             margin-top: 20px;
-            flex-direction: column;
         }
         img {
             image-rendering: pixelated;
@@ -114,17 +113,6 @@
                     img.style.animation = 'none';
                     title.textContent = 'Flowey | Calmed Down';
                 }
-            } else if (text.includes('press f1 for help')) {
-                floweyState = 0;
-                img.src = 'assets/FloweyNice.png';
-                img.style.animation = 'none';
-                title.textContent = 'Flowey | Calmed Down';
-            } else if (text.includes('photoshop')) {
-                img.src = 'assets/FloweyPhotoshop.png';
-                img.style.width = 'auto';
-                img.style.height = 'auto';
-                img.style.maxWidth = '100%';
-                img.style.maxHeight = '100%';
             } else {
                 title.textContent = 'Flowey | Not Calmed';
             }
