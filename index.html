@@ -70,7 +70,6 @@
         let floweyState = 0;
 
         function handleButtonClick() {
-            message.textContent = 'Calm down the Flowey.';
             const textbox = document.querySelector('.textbox');
             const img = document.querySelector('img');
             const title = document.querySelector('title');
@@ -86,6 +85,8 @@
                 }
                 return;
             }
+
+            message.textContent = 'Calm down the Flowey.';
 
             if (text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) {
                 if (floweyState == 10) {
