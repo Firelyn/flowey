@@ -68,6 +68,12 @@
     </style>
     <script>
         let floweyState = 0;
+        const textbox = document.querySelector('.textbox');
+        const text = textbox.value.toLowerCase();
+        const img = document.querySelector('img');
+        const message = document.querySelector('.message');
+        const title = document.querySelector('title');
+        message.textContent = '';
 
         function Soul() {
             if (floweyState == 10) {
@@ -82,13 +88,6 @@
         }
 
         function HandleButton() {
-            const textbox = document.querySelector('.textbox');
-            const img = document.querySelector('img');
-            const title = document.querySelector('title');
-            const message = document.querySelector('.message');
-            const text = textbox.value.toLowerCase();
-            message.textContent = '';
-
             if (floweyState === 3 || floweyState === 11) {
                 if (floweyState == 11) {
                     message.textContent = 'You lost.';
