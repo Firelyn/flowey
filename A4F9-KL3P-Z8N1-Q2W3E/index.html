@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>_</title>
     <link id="pageicon" rel="icon" href="assets/sprites/FloweyNice.png">
     <style>
         body {
@@ -25,11 +25,9 @@
     </audio>
     <script>
         const audioElement = document.getElementById('background-audio');
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const track = audioContext.createMediaElementSource(audioElement);
-        const gainNode = audioContext.createGain();
-        track.connect(gainNode).connect(audioContext.destination);
-        gainNode.gain.value = 0.75;
+        audioElement.addEventListener('canplaythrough', () => {
+            audioElement.volume = 0.75;
+        });
     </script>
 </body>
 </html>
