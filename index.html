@@ -113,6 +113,10 @@
                 const text = textbox.value.toLowerCase();
                 message.textContent = '';
 
+                if (text.includes('gaster')) {
+                    body.style.backgroundColor = 'black';
+                }
+
                 if (floweyState === 3 || floweyState === 11 || floweyState === 12 || floweyState === 9) {
                     if (floweyState == 11) {
                         message.textContent = 'You lost.';
