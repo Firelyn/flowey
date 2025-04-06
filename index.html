@@ -140,9 +140,6 @@
                     img.src = 'assets/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
                     img.classList.add('stopped');
-                    setTimeout(() => {
-                        img.src = 'assets/FloweyHidesLastFrame.png';
-                    }, 450);
                 } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
                     floweyState = 10
                     img.src = 'assets/FloweyToriel2.png';
@@ -157,9 +154,6 @@
                     img.src = 'assets/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
                     img.classList.add('stopped');
-                    setTimeout(() => {
-                        img.src = 'assets/FloweyHidesLastFrame.png';
-                    }, 450);
                 } else if (text.includes('asriel') || text.includes('asgore')) {
                     img.src = 'assets/FloweyPissed.png';
                 } else if (text.includes('toriel')) {
