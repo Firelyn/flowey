@@ -105,11 +105,6 @@
             blackout.classList.add('blackout');
             document.body.appendChild(blackout);
 
-            function CalmDownStage1() {
-                floweyState = 6;
-                img.src = 'assets/FloweySide.png';
-            }
-
             function Soul() {
                 if (floweyState == 10) {
                     floweyState = 11;
@@ -180,17 +175,19 @@
                     img.src = 'assets/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
                     img.classList.add('stopped');
-                } else if (text.includes('asriel') || text.includes('asgore')) {
+                } else if (text.includes('asriel')) {
                     if (/\beverything\b/i.test(text) && /\bokay\b/i.test(text)) {
-                        CalmDownStage1();
-                        textbox.value = '';
-                        return;
+                        floweyState = 6;
+                        img.src = 'assets/FloweySide.png';
+                    else
+                        img.src = 'assets/FloweyPissed.png';
                     }
-                    img.src = 'assets/FloweyPissed.png';
                 } else if (/\bmoron\b/i.test(text) || /\bbitch\b/i.test(text) || /\basshole\b/i.test(text) || /\bidiot\b/i.test(text)) {
                     img.src = 'assets/FloweyMe.png';
                 } else if (text.includes('toriel')) {
                     img.src = 'assets/FloweyToriel2.png';
+                } else if (text.includes('asgore')) {
+                    img.src = 'assets/FloweyPissed.png';
                 } else if (text.includes('sans')) {
                     img.src = 'assets/FloweySans.png';
                     message.textContent = 'Calm down Flower the Sans.';
@@ -206,8 +203,6 @@
                     pageIcon.href = 'assets/Pluey.png';
                 } else if (text.includes('lets') && text.includes('destroy') && text.includes('this') && text.includes('world')) {
                     img.src = 'assets/FloweySkullMouth.png';
-                } else if (text.includes('asriel') && text.includes('everything') && text.includes('okay')) {
-                    CalmDownStage1()
                 } else if (text.includes('it') && text.includes('s') && text.includes('killed') && text.includes('or') && text.includes('be') && text.includes('killed')) {
                     img.src = 'assets/FloweyNiceSideum.png';
                 } else if (text.includes('you') && text.includes('are') && text.includes('an') && text.includes('pathetic') && text.includes('flower')) {
