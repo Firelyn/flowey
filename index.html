@@ -177,6 +177,8 @@
                     img.classList.add('stopped');
                 } else if (text.includes('asriel') || text.includes('asgore')) {
                     img.src = 'assets/FloweyPissed.png';
+                } else if (/\bmoron\b/i.test(text) || /\bbitch\b/i.test(text) || /\basshole\b/i.test(text) || /\bidiot\b/i.test(text)) {
+                    img.src = 'assets/FloweyMe.png';
                 } else if (text.includes('toriel')) {
                     img.src = 'assets/FloweyToriel2.png';
                 } else if (text.includes('sans')) {
