@@ -181,7 +181,7 @@
                     message.textContent = 'Flowey is scared of you.';
                     img.classList.add('stopped');
                 } else if (text.includes('asriel') || text.includes('asgore')) {
-                    if /\beverything\b/i.test(text) && /\bokay\b/i.test(text)) {
+                    if (/\beverything\b/i.test(text) && /\bokay\b/i.test(text)) {
                         CalmDownStage1();
                         return;
                     }
