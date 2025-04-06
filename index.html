@@ -69,10 +69,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let floweyState = 0;
-            const textbox = document.querySelector('.textbox');
             const message = document.querySelector('.message');
             const title = document.querySelector('title');
-            const text = textbox.value.toLowerCase();
             const img = document.querySelector('img');
 
             function Soul() {
@@ -88,6 +86,8 @@
             }
 
             document.querySelector('.button').addEventListener('click', () => {
+                const textbox = document.querySelector('.textbox');
+                const text = textbox.value.toLowerCase();
                 message.textContent = '';
 
                 if (floweyState === 3 || floweyState === 11 || floweyState === 9) {
