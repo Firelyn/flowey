@@ -21,8 +21,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: absolute;
             width: 125px;
             height: 125px;
+            top: 50%;
+            transform: translateY(-50%);
         }
         img {
             width: 125px;
@@ -32,7 +35,8 @@
             animation: shake 0.1s infinite;
         }
         .photoshopFlowey {
-            transform: scale(3);
+            width: 375px;
+            height: 375px;
         }
         .stopped {
             animation: none !important;
