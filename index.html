@@ -146,7 +146,7 @@
                     return;
                 }
 
-                message.textContent = 'Calm down Flower the Flowey.';
+                message.textContent = 'Calm down Flowey the Flower.';
 
                 if ((text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) ||
                     (text.includes('take') && text.includes('my') && text.includes('soul')) ||
@@ -191,7 +191,7 @@
                 } else if (text.includes('sans')) {
                     img.src = 'assets/FloweySans.png';
                     message.textContent = 'Calm down Flower the Sans.';
-                } else if (text.includes('friend') && text.includes('inside')) {
+                } else if ((text.includes('friend') && text.includes('inside')) || text.includes('gay')) {
                     img.src = 'assets/FloweyConfused.png';
                 } else if (text.includes('pluey')) {
                     floweyState = 12;
@@ -238,7 +238,7 @@
     <div class="image-container">
         <img src="assets/FloweySassy.png" alt="Flowey">
     </div>
-    <div class="message">Calm down Flower the Flowey.</div>
+    <div class="message">Calm down Flowey the Flower.</div>
     <div class="spacer"></div>
     <div class="container">
         <input type="text" class="textbox" placeholder="">
