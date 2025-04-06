@@ -67,6 +67,10 @@
         }
     </style>
     <script>
+        const textbox = document.querySelector('.textbox');
+        const message = document.querySelector('.message');
+        const img = document.querySelector('img');
+        const title = document.querySelector('title');
         let floweyState = 0;
         
         function Soul() {
@@ -82,11 +86,7 @@
         }
 
         function HandleButton() {
-            const textbox = document.querySelector('.textbox');
             const text = textbox.value.toLowerCase();
-            const img = document.querySelector('img');
-            const message = document.querySelector('.message');
-            const title = document.querySelector('title');
             message.textContent = '';
             
             if (floweyState === 3 || floweyState === 11) {
