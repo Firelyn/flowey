@@ -82,6 +82,16 @@
             color: rgba(255, 255, 255, 0.5);
             font-size: 10px;
         }
+        .blackout {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 10;
+            display: none;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -91,6 +101,9 @@
             const message = document.querySelector('.message');
             const title = document.querySelector('title');
             const img = document.querySelector('img');
+            const blackout = document.createElement('div');
+            blackout.classList.add('blackout');
+            document.body.appendChild(blackout);
 
             function Soul() {
                 if (floweyState == 10) {
@@ -114,7 +127,9 @@
                 message.textContent = '';
 
                 if (text.includes('gaster')) {
-                    body.style.backgroundColor = 'black';
+                    blackout.style.display = 'block';
+                    document.body.innerHTML = '';
+                    return;
                 }
 
                 if (floweyState === 3 || floweyState === 11 || floweyState === 12 || floweyState === 9) {
@@ -140,7 +155,8 @@
                     (text.includes('you') && text.includes('really') && text.includes('are') && text.includes('an') && text.includes('idiot'))) {
                     floweyState = 2;
                     img.src = 'assets/FloweyEvil.png';
-                } else if ((text.includes('i') && text.includes('want') && text.includes('you')) || (text.includes('oil') && text.includes('up'))) {
+                } else if ((text.includes('i') && text.includes('want') && text.includes('you')) || (text.includes('oil') && text.includes('up'))
+                    || (text.includes('skibidi')) || (text.includes('i') text.includes('love') && text.includes('you'))) {
                     floweyState = 3;
                     img.src = 'assets/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
@@ -148,9 +164,6 @@
                 } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
                     floweyState = 10
                     img.src = 'assets/FloweyToriel2.png';
-                } else if (text.includes('it') && text.includes('s') && text.includes('me') && text.includes('chara')) {
-                    floweyState = 4;
-                    img.src = 'assets/FloweySkullMouth.png';
                 } else if (text.includes('it') && text.includes('s') && text.includes('me') && text.includes('chara')) {
                     floweyState = 4;
                     img.src = 'assets/FloweySkullMouth.png';
