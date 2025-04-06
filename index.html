@@ -157,6 +157,12 @@
                     setTimeout(() => {
                         img.src = 'assets/FloweyHidesLastFrame.png';
                     }, 575);
+                } else if (text.includes('asriel')) || text.includes('asgore'))) {
+                    img.src = 'assets/FloweyPissed.png';
+                } else if (text.includes('toriel')) {
+                    img.src = 'assets/FloweyToriel2.png';
+                } else if (text.includes('lets') && text.includes('destroy') && text.includes('this') && text.includes('world')) {
+                    img.src = 'assets/FloweySkullMouth.png';
                 } else if (text.includes('asriel') && text.includes('everything') && text.includes('okay')) {
                     floweyState = 6;
                     img.src = 'assets/FloweySide.png';
