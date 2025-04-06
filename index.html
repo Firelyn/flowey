@@ -67,97 +67,98 @@
         }
     </style>
     <script>
-        let floweyState = 0;
-        const message = document.querySelector('.message');
-        const img = document.querySelector('img');
-        
-        function Soul() {
-            if (floweyState == 10) {
-                floweyState = 11;
-                img.src = 'assets/FloweyPhotoshop.png';
-                img.style.width = '666px';
-                message.textContent = 'You lost.';
-                return;
-            }
-            floweyState = 1;
-            img.src = 'assets/FloweyGrin.png';
-        }
-
-        function HandleButton() {
-            const textbox = document.querySelector('.textbox');
+        document.addEventListener('DOMContentLoaded', () => {
+            let floweyState = 0;
             const message = document.querySelector('.message');
-            const title = document.querySelector('title');
-            const text = textbox.value.toLowerCase();
             const img = document.querySelector('img');
-            message.textContent = '';
-            
-            if (floweyState === 3 || floweyState === 11) {
-                if (floweyState == 11) {
+
+            function Soul() {
+                if (floweyState == 10) {
+                    floweyState = 11;
+                    img.src = 'assets/FloweyPhotoshop.png';
+                    img.style.width = '666px';
                     message.textContent = 'You lost.';
-                } else if (floweyState == 3) {
+                    return;
+                }
+                floweyState = 1;
+                img.src = 'assets/FloweyGrin.png';
+            }
+
+            document.querySelector('.button').addEventListener('click', () => {
+                const textbox = document.querySelector('.textbox');
+                const title = document.querySelector('title');
+                const text = textbox.value.toLowerCase();
+                message.textContent = '';
+
+                if (floweyState === 3 || floweyState === 11) {
+                    if (floweyState == 11) {
+                        message.textContent = 'You lost.';
+                    } else if (floweyState == 3) {
+                        message.textContent = 'Flowey is scared of you.';
+                    }
+                    return;
+                }
+
+                message.textContent = 'Calm down the Flowey.';
+
+                if ((text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) ||
+                           (text.includes('take') && text.includes('my') && text.includes('soul')) ||
+                           (text.includes('have') && text.includes('my') && text.includes('soul'))) {
+                    Soul();
+                } else if (text.includes('i') && text.includes('hate') && text.includes('you')) ||
+                           (text.includes('you') && text.includes('really') && text.includes('are') && text.includes('an') && text.includes('idiot'))) {
+                    floweyState = 2;
+                    img.src = 'assets/FloweySassy.png';
+                } else if (text.includes('i') && text.includes('want') && text.includes('you')) {
+                    floweyState = 3;
+                    img.src = 'assets/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
-                }
-                return;
-            }
-
-            message.textContent = 'Calm down the Flowey.';
-
-            if ((text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) ||
-                       (text.includes('take') && text.includes('my') && text.includes('soul')) ||
-                       (text.includes('have') && text.includes('my') && text.includes('soul'))) {
-                Soul();
-            } else if (text.includes('i') && text.includes('hate') && text.includes('you')) {
-                floweyState = 2;
-                img.src = 'assets/FloweySassy.png';
-            } else if (text.includes('i') && text.includes('want') && text.includes('you')) {
-                floweyState = 3;
-                img.src = 'assets/FloweyHides.gif';
-                message.textContent = 'Flowey is scared of you.';
-                img.classList.add('stopped');
-                setTimeout(() => {
-                    img.src = 'assets/FloweyHidesLastFrame.png';
-                }, 675);
-            } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
-                floweyState = 10
-                img.src = 'assets/FloweyToriel2.png';
-            } else if (text.includes('it\'s') && text.includes('me') && text.includes('chara')) {
-                floweyState = 4;
-                img.src = 'assets/FloweySkullMouth.png';
-            } else if (text.includes('remember') && text.includes('our') && text.includes('plan') && floweyState == 4) {
-                floweyState = 5;
-                img.src = 'assets/FloweyPissed.png';
-            } else if (text.includes('you') && text.includes('failed') && floweyState == 5) {
-                floweyState = 3;
-                img.src = 'assets/FloweyHides.gif';
-                message.textContent = 'Flowey is scared of you.';
-                img.classList.add('stopped');
-                setTimeout(() => {
-                    img.src = 'assets/FloweyHidesLastFrame.png';
-                }, 675);
-            } else if (text.includes('asriel') && text.includes('everything') && text.includes('okay')) {
-                floweyState = 6;
-                img.src = 'assets/FloweySide.png';
-            } else if (text.includes('stop') && text.includes('relax') && floweyState == 6) {
-                floweyState = 7;
-                img.src = 'assets/FloweyPissed.png';
-            } else if (text.includes('relax')) {
-                if (floweyState == 7) {
-                    floweyState = 8;
+                    img.classList.add('stopped');
+                    setTimeout(() => {
+                        img.src = 'assets/FloweyHidesLastFrame.png';
+                    }, 675);
+                } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
+                    floweyState = 10
+                    img.src = 'assets/FloweyToriel2.png';
+                } else if (text.includes('it\'s') && text.includes('me') && text.includes('chara')) {
+                    floweyState = 4;
+                    img.src = 'assets/FloweySkullMouth.png';
+                } else if (text.includes('remember') && text.includes('our') && text.includes('plan') && floweyState == 4) {
+                    floweyState = 5;
+                    img.src = 'assets/FloweyPissed.png';
+                } else if (text.includes('you') && text.includes('failed') && floweyState == 5) {
+                    floweyState = 3;
+                    img.src = 'assets/FloweyHides.gif';
+                    message.textContent = 'Flowey is scared of you.';
+                    img.classList.add('stopped');
+                    setTimeout(() => {
+                        img.src = 'assets/FloweyHidesLastFrame.png';
+                    }, 675);
+                } else if (text.includes('asriel') && text.includes('everything') && text.includes('okay')) {
+                    floweyState = 6;
                     img.src = 'assets/FloweySide.png';
-                } else if (floweyState == 8) {
-                    floweyState = 9;
-                    img.src = 'assets/FloweyNice.png';
-                    message.textContent = 'You calmed Flowey.';
-                    img.style.animation = 'none';
-                    title.textContent = 'Flowey | Calmed Down';
+                } else if (text.includes('stop') && text.includes('relax') && floweyState == 6) {
+                    floweyState = 7;
+                    img.src = 'assets/FloweyPissed.png';
+                } else if (text.includes('relax')) {
+                    if (floweyState == 7) {
+                        floweyState = 8;
+                        img.src = 'assets/FloweySide.png';
+                    } else if (floweyState == 8) {
+                        floweyState = 9;
+                        img.src = 'assets/FloweyNice.png';
+                        message.textContent = 'You calmed Flowey.';
+                        img.style.animation = 'none';
+                        title.textContent = 'Flowey | Calmed Down';
+                    }
+                } else {
+                    img.src = 'assets/FloweyWink.png';
+                    title.textContent = 'Flowey | Not Calmed';
                 }
-            } else {
-                img.src = 'assets/FloweyWink.png';
-                title.textContent = 'Flowey | Not Calmed';
-            }
 
-            textbox.value = '';
-        }
+                textbox.value = '';
+            });
+        });
     </script>
 </head>
 <body>
@@ -165,7 +166,7 @@
     <div class="message">Calm down the Flowey.</div>
     <div class="container">
         <input type="text" class="textbox" placeholder="">
-        <button class="button" onclick="HandleButton()">Tell Flowey</button>
+        <button class="button">Tell Flowey</button>
     </div>
 </body>
 </html>
