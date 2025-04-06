@@ -86,6 +86,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let floweyState = 0;
+            const imageContainer = document.querySelector('.image-container');
             const message = document.querySelector('.message');
             const title = document.querySelector('title');
             const img = document.querySelector('img');
@@ -95,6 +96,10 @@
                     floweyState = 11;
                     img.src = 'assets/FloweyPhotoshop.png';
                     message.textContent = 'You lost.';
+                    imageContainer.style.width = 'auto';
+                    imageContainer.style.height = 'auto';
+                    img.style.width = 'auto';
+                    img.style.height = 'auto';
                     return;
                 }
                 floweyState = 1;
