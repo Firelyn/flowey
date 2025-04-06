@@ -100,12 +100,10 @@
 
             message.textContent = 'Calm down the Flowey.';
 
-            if (text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) {
-                Soul()
-            } else if (text.includes('take') && text.includes('my') && text.includes('soul')) {
-                Soul()
-            } else if (text.includes('have') && text.includes('my') && text.includes('soul')) {
-                Soul()
+            if ((text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) ||
+                       (text.includes('take') && text.includes('my') && text.includes('soul')) ||
+                       (text.includes('have') && text.includes('my') && text.includes('soul'))) {
+                Soul();
             } else if (text.includes('i') && text.includes('hate') && text.includes('you')) {
                 floweyState = 2;
                 img.src = 'assets/FloweySassy.png';
