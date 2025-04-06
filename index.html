@@ -14,7 +14,6 @@
             margin: 0;
             background-color: #000000;
             flex-direction: column;
-            position: relative;
         }
         .image-container {
             display: flex;
@@ -24,7 +23,7 @@
             height: 125px;
             position: absolute;
             top: 300px;
-            z-index: 1
+            z-index: 1;
         }
         img {
             width: 125px;
@@ -34,6 +33,7 @@
             animation: shake 0.1s infinite;
         }
         .textbox, .button, .message {
+            position: relative;
             z-index: 2;
         }
         .stopped {
