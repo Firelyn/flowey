@@ -168,7 +168,7 @@
                 } else if (text.includes('it') && text.includes('s') && text.includes('me') && text.includes('chara')) {
                     floweyState = 4;
                     img.src = 'assets/FloweySkullMouth.png';
-                } else if (text.includes('dead')) {
+                } else if (/\bdead\b/i.test(text) || /\bdie\b/i.test(text)) {
                     img.src = 'assets/FloweyEvil.png';
                 } else if (text.includes('you') && text.includes('failed') && floweyState == 5) {
                     floweyState = 3;
