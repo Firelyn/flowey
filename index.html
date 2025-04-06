@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--What are you doing? Looking for secrets? Or possibly cheating? Whatever you're doing, you should go back before it's too late...-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
             margin: 0;
             background-color: #000000;
             flex-direction: column;
+            position: relative;
         }
         .image-container {
             display: flex;
@@ -21,9 +23,6 @@
             align-items: center;
             width: 125px;
             height: 125px;
-            position: absolute;
-            top: 300px;
-            z-index: 1;
         }
         img {
             width: 125px;
@@ -32,21 +31,8 @@
             max-height: 100%;
             animation: shake 0.1s infinite;
         }
-        .textbox, .button, .message {
-            position: relative;
-            z-index: 2;
-        }
         .stopped {
             animation: none !important;
-        }
-        .large-container {
-            top: 0px;
-            width: auto;
-            height: auto;
-        }
-        .large-img {
-            width: auto;
-            height: auto;
         }
         @keyframes shake {
             0% { transform: translate(0, 0); }
@@ -84,6 +70,9 @@
             margin-top: 10px;
             font-size: 14px;
         }
+        .spacer {
+            height: 20px;
+        }
         footer {
             position: absolute;
             bottom: 10px;
@@ -100,14 +89,11 @@
             const message = document.querySelector('.message');
             const title = document.querySelector('title');
             const img = document.querySelector('img');
-            const imageContainer = document.querySelector('.image-container');
 
             function Soul() {
                 if (floweyState == 10) {
                     floweyState = 11;
                     img.src = 'assets/FloweyPhotoshop.png';
-                    img.classList.add('large-img');
-                    imageContainer.classList.add('large-container');
                     message.textContent = 'You lost.';
                     return;
                 }
@@ -197,9 +183,8 @@
     <div class="image-container">
         <img src="assets/FloweySassy.png" alt="Flowey">
     </div>
-    <div style="height: 75px;"></div>
     <div class="message">Calm down the Flowey.</div>
-    <div style="height: 20px;"></div>
+    <div class="spacer"></div>
     <div class="container">
         <input type="text" class="textbox" placeholder="">
         <button class="button">Tell Flowey</button>
