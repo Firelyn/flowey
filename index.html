@@ -21,11 +21,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            position: absolute;
             width: 125px;
             height: 125px;
-            top: 50%;
-            transform: translateY(-50%);
         }
         img {
             width: 125px;
@@ -33,10 +30,6 @@
             image-rendering: pixelated;
             max-height: 100%;
             animation: shake 0.1s infinite;
-        }
-        .photoshopFlowey {
-            width: 375px;
-            height: 375px;
         }
         .stopped {
             animation: none !important;
@@ -101,13 +94,11 @@
                 if (floweyState == 10) {
                     floweyState = 11;
                     img.src = 'assets/FloweyPhotoshop.png';
-                    img.classList.add('photoshopFlowey');
                     message.textContent = 'You lost.';
                     return;
                 }
                 floweyState = 1;
                 img.src = 'assets/FloweyGrin.png';
-                img.classList.remove('photoshopFlowey');
             }
 
             document.querySelector('.button').addEventListener('click', () => {
