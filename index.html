@@ -23,7 +23,9 @@
             width: 125px;
             height: 125px;
             position: absolute;
-            top: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         img {
             width: 125px;
@@ -36,12 +38,8 @@
             animation: none !important;
         }
         .large-container {
-            width: 300px;
-            height: 300px;
-        }
-        .large-img {
-            width: 300px;
-            height: 300px;
+            width: auto;
+            height: auto;
         }
         @keyframes shake {
             0% { transform: translate(0, 0); }
@@ -104,7 +102,6 @@
                 if (floweyState == 10) {
                     floweyState = 11;
                     img.src = 'assets/FloweyPhotoshop.png';
-                    img.classList.add('large-img');
                     imageContainer.classList.add('large-container');
                     message.textContent = 'You lost.';
                     return;
