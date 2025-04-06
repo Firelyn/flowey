@@ -69,7 +69,19 @@
     <script>
         let floweyState = 0;
 
-        function handleButtonClick() {
+        function Soul() {
+            if (floweyState == 10) {
+                floweyState = 11;
+                img.src = 'assets/FloweyPhotoshop.png';
+                img.style.width = '666px';
+                message.textContent = 'You lost.';
+                return;
+            }
+            floweyState = 1;
+            img.src = 'assets/FloweyGrin.png';
+        }
+
+        function HandleButton() {
             const textbox = document.querySelector('.textbox');
             const img = document.querySelector('img');
             const title = document.querySelector('title');
@@ -89,15 +101,11 @@
             message.textContent = 'Calm down the Flowey.';
 
             if (text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) {
-                if (floweyState == 10) {
-                    floweyState = 11;
-                    img.src = 'assets/FloweyPhotoshop.png';
-                    img.style.width = '666px';
-                    message.textContent = 'You lost.';
-                    return;
-                }
-                floweyState = 1;
-                img.src = 'assets/FloweyGrin.png';
+                Soul()
+            } else if (text.includes('take') && text.includes('my') && text.includes('soul')) {
+                Soul()
+            } else if (text.includes('have') && text.includes('my') && text.includes('soul')) {
+                Soul()
             } else if (text.includes('i') && text.includes('hate') && text.includes('you')) {
                 floweyState = 2;
                 img.src = 'assets/FloweySassy.png';
@@ -157,7 +165,7 @@
     <div class="message">Calm down the Flowey.</div>
     <div class="container">
         <input type="text" class="textbox" placeholder="">
-        <button class="button" onclick="handleButtonClick()">Tell Flowey</button>
+        <button class="button" onclick="HandleButton()">Tell Flowey</button>
     </div>
 </body>
 </html>
