@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowey | Not Calmed</title>
-    <link rel="icon" href="assets/FloweyNice.png">
+    <link id="pageicon" rel="icon" href="assets/FloweyNice.png">
     <style>
         body {
             display: flex;
@@ -87,6 +87,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             let floweyState = 0;
             const imageContainer = document.querySelector('.image-container');
+            const pageIcon = document.getElementById('pageicon');
             const message = document.querySelector('.message');
             const title = document.querySelector('title');
             const img = document.querySelector('img');
@@ -145,7 +146,7 @@
                 } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
                     floweyState = 10
                     img.src = 'assets/FloweyToriel2.png';
-                } else if (text.includes('it\'s') && text.includes('me') && text.includes('chara')) {
+                } else if (text.includes('it') && text.includes('s') && text.includes('me') && text.includes('chara')) {
                     floweyState = 4;
                     img.src = 'assets/FloweySkullMouth.png';
                 } else if (text.includes('remember') && text.includes('our') && text.includes('plan') && floweyState == 4) {
@@ -170,17 +171,19 @@
                     img.style.animation = 'none';
                     title.textContent = 'Pluey Pluey Pluey Pluey Pluey';
                     document.querySelector('.button').textContent = 'Tell Pluey';
-                    <link rel="icon" href="assets/Pluey.png">
+                    pageIcon.href = 'assets/Pluey.png';
                 } else if (text.includes('lets') && text.includes('destroy') && text.includes('this') && text.includes('world')) {
                     img.src = 'assets/FloweySkullMouth.png';
                 } else if (text.includes('asriel') && text.includes('everything') && text.includes('okay')) {
                     floweyState = 6;
                     img.src = 'assets/FloweySide.png';
+                } else if (text.includes('it') && text.includes('s') && text.includes('killed') && text.includes('or') && text.includes('be') && text.includes('killed')) {
+                    img.src = 'assets/FloweyNiceSideum.png';
                 } else if (text.includes('stop') && text.includes('relax') && floweyState == 6) {
                     floweyState = 7;
                     img.src = 'assets/FloweyPissed.png';
-                } else if ((text.includes('deltarune') && text.includes('tomorrow')) ||
-                    (text.includes('dr') && text.includes('tomorrow'))) {
+                } else if ((text.includes('deltarune') && text.includes('cancelled')) ||
+                    (text.includes('dr') && text.includes('cancelled'))) {
                     img.src = 'assets/FloweyHurt.png';
                 } else if (text.includes('relax')) {
                     if (floweyState == 7) {
