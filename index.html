@@ -67,7 +67,6 @@
         }
     </style>
     <script>
-        const textbox = document.querySelector('.textbox');
         const message = document.querySelector('.message');
         const img = document.querySelector('img');
         const title = document.querySelector('title');
@@ -86,6 +85,7 @@
         }
 
         function HandleButton() {
+            const textbox = document.querySelector('.textbox');
             const text = textbox.value.toLowerCase();
             message.textContent = '';
             
