@@ -31,6 +31,9 @@
             max-height: 100%;
             animation: shake 0.1s infinite;
         }
+        .photoshopFlowey {
+            transform: scale(3);
+        }
         .stopped {
             animation: none !important;
         }
@@ -94,13 +97,13 @@
                 if (floweyState == 10) {
                     floweyState = 11;
                     img.src = 'assets/FloweyPhotoshop.png';
-                    img.style.width = '666px';
-                    img.style.height = '666px';
+                    img.classList.add('photoshopFlowey');
                     message.textContent = 'You lost.';
                     return;
                 }
                 floweyState = 1;
                 img.src = 'assets/FloweyGrin.png';
+                img.classList.remove('photoshopFlowey');
             }
 
             document.querySelector('.button').addEventListener('click', () => {
