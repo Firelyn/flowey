@@ -17,15 +17,16 @@
             flex-direction: column;
             position: relative;
         }
-        .container {
+        .image-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 20px;
+            height: 200px; /* Adjust this height as needed */
+            width: 100%;
         }
         img {
             image-rendering: pixelated;
-            width: 175px;
+            max-height: 100%;
             animation: shake 0.1s infinite;
         }
         .stopped {
@@ -175,7 +176,9 @@
     </script>
 </head>
 <body>
-    <img src="assets/FloweySassy.png" alt="Flowey">
+    <div class="image-container">
+        <img src="assets/FloweySassy.png" alt="Flowey">
+    </div>
     <div class="message">Calm down the Flowey.</div>
     <div class="container">
         <input type="text" class="textbox" placeholder="">
