@@ -96,19 +96,28 @@
         <img class="asriel-behind" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
     </div>
     
-    <audio id="background-audio" autoplay>
-        <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
-        <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
+    <audio id="background-audio" autoplay muted>
+      <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
+      <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
     </audio>
     
     <script>
-        window.addEventListener('load', function() {
-            var audio = document.getElementById('background-audio');
-            audio.muted = false;
-            audio.addEventListener('canplaythrough', function() {
-                audio.play();
-            }, false);
-        });
+      document.addEventListener('click', function() {
+        var audio = document.getElementById('background-audio');
+        audio.muted = false;
+      }, { once: true });
+    
+      var audio = document.getElementById('background-audio');
+    
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") {
+          audio.play().catch(function(error) {
+            console.error('Playback failed:', error);
+          });
+        } else {
+          audio.pause();
+        }
+      });
     </script>
 </body>
 </html>
