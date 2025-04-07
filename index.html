@@ -51,10 +51,9 @@
             outline: none;
         }
         .music-button {
-            padding: 5px;
             background-color: transparent;
             color: #000000;
-            font-size: 18px;
+            font-size: 12px;
             border: none;
             outline: none;
             box-shadow: none;
@@ -115,10 +114,31 @@
             blackout.classList.add('blackout');
             document.body.appendChild(blackout);
 
-            const NotCalmSong = new Audio('assets/songs/NotCalmSong.ogg');
-            NotCalmSong.loop = true;
-            const CalmSong = new Audio('assets/songs/CalmSong.ogg');
-            CalmSong.loop = true;
+            const musicTracks = {
+                NotCalm: new Audio('assets/songs/NotCalmSong.ogg'),
+                Calm: new Audio('assets/songs/CalmSong.ogg'),
+            };
+            
+            for (const key in musicTracks) {
+                musicTracks[key].loop = true;
+            }
+            
+            let musicOn = true;
+            let currentTrack = null;
+            
+            function playMusic(name) {
+                for (const key in musicTracks) {
+                    musicTracks[key].pause();
+                    musicTracks[key].currentTime = 0;
+                }
+            
+                currentTrack = name;
+                if (musicOn) {
+                    musicTracks[name].play();
+                }
+            }
+
+            playMusic('NotCalm');
 
             function Soul() {
                 if (floweyState == 10) {
@@ -284,6 +304,7 @@
                         img.src = 'assets/sprites/FloweyHappi.png';
                         message.textContent = 'https://firelyn.github.io/flowey/A4F9-KL3P-Z8N1-Q2W3E/';
                         img.classList.add('stopped');
+                        playMusic('Calm');
                         title.textContent = 'Flowey | Calmed Down';
                     }
                 } else {
@@ -301,14 +322,16 @@
             });
 
             document.querySelector('.music-button').addEventListener('click', () => {
-                if (musicOn) {
-                    NotCalmSong.pause();
-                    document.querySelector('.music-button').textContent = '🔇';
-                    musicOn = false;
+                musicOn = !musicOn;
+            
+                document.querySelector('.music-button').textContent = musicOn ? '🔊' : '🔇';
+            
+                if (musicOn && currentTrack) {
+                    musicTracks[currentTrack].play();
                 } else {
-                    NotCalmSong.play();
-                    document.querySelector('.music-button').textContent = '🔊';
-                    musicOn = true;
+                    for (const key in musicTracks) {
+                        musicTracks[key].pause();
+                    }
                 }
             });
         });
