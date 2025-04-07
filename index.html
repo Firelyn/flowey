@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowey | Not Calmed</title>
-    <link id="pageicon" rel="icon" href="assets/FloweyNice.png">
+    <link id="pageicon" rel="icon" href="assets/sprites/FloweyNice.png">
     <style>
         body {
             display: flex;
@@ -108,7 +108,7 @@
             function Soul() {
                 if (floweyState == 10) {
                     floweyState = 11;
-                    img.src = 'assets/FloweyPhotoshop.png';
+                    img.src = 'assets/sprites/FloweyPhotoshop.png';
                     message.textContent = 'You lost.';
                     title.textContent = 'HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA HA';
                     imageContainer.style.width = 'auto';
@@ -118,7 +118,7 @@
                     return;
                 }
                 floweyState = 1;
-                img.src = 'assets/FloweyGrin.png';
+                img.src = 'assets/sprites/FloweyGrin.png';
             }
 
             document.querySelector('.button').addEventListener('click', () => {
@@ -133,7 +133,7 @@
                     return;
                 }
 
-                if (floweyState === 3 || floweyState === 11 || floweyState === 12 || floweyState === 9) {
+                if (floweyState === 3 || floweyState === 11 || floweyState === 12 || floweyState === 15 || floweyState === 13 || floweyState === 14 || floweyState === 9) {
                     if (floweyState == 11) {
                         message.textContent = 'You lost.';
                     } else if (floweyState == 3) {
@@ -142,6 +142,9 @@
                         message.textContent = 'You calmed Flowey.';
                     } else if (floweyState == 12) {
                         message.textContent = 'Flowey?';
+                    } else if (floweyState == 13) {
+                    } else if (floweyState == 14) {
+                    } else if (floweyState == 15) {
                     }
                     return;
                 }
@@ -155,88 +158,110 @@
                 } else if ((text.includes('i') && text.includes('hate') && text.includes('you')) ||
                     (text.includes('you') && text.includes('really') && text.includes('are') && text.includes('an') && text.includes('idiot'))) {
                     floweyState = 2;
-                    img.src = 'assets/FloweyEvil.png';
+                    img.src = 'assets/sprites/FloweyEvil.png';
                 } else if ((text.includes('i') && text.includes('want') && text.includes('you')) || (text.includes('oil') && text.includes('up'))
                     || (text.includes('skibidi')) || (text.includes('i') && /\blove\b/i.test(text) && text.includes('you'))) {
                     floweyState = 3;
-                    img.src = 'assets/FloweyHides.gif';
+                    img.src = 'assets/gifs/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
                     img.classList.add('stopped');
                 } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
                     floweyState = 10
-                    img.src = 'assets/FloweyToriel2.png';
+                    img.src = 'assets/sprites/FloweyToriel2.png';
                 } else if (text.includes('it') && text.includes('s') && text.includes('me') && text.includes('chara')) {
                     floweyState = 4;
-                    img.src = 'assets/FloweySkullMouth.png';
+                    img.src = 'assets/sprites/FloweyDontCare.png';
                 } else if (/\bdead\b/i.test(text) || /\bdie\b/i.test(text)) {
-                    img.src = 'assets/FloweyEvil.png';
+                    img.src = 'assets/sprites/FloweyEvil.png';
                 } else if (text.includes('you') && text.includes('failed') && floweyState == 5) {
                     floweyState = 3;
-                    img.src = 'assets/FloweyHides.gif';
+                    img.src = 'assets/gifs/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
                     img.classList.add('stopped');
                 } else if (text.includes('asriel')) {
                     if (/\beverything\b/i.test(text) && /\bokay\b/i.test(text)) {
                         floweyState = 6;
-                        img.src = 'assets/FloweySide.png';
+                        img.src = 'assets/sprites/FloweySide.png';
                     } else {
-                        img.src = 'assets/FloweyPissed.png';
+                        img.src = 'assets/sprites/FloweyPissed.png';
                     }
                 } else if (/\bmoron\b/i.test(text) || /\bbitch\b/i.test(text) || /\basshole\b/i.test(text) || /\bidiot\b/i.test(text)) {
-                    img.src = 'assets/FloweyMe.png';
+                    img.src = 'assets/sprites/FloweyMe.png';
+                } else if (/\bdogcheck\b/i.test(text)) {
+                    floweyState = 15;
+                    img.src = 'assets/gifs/DogMaraca.gif';
+                    message.textContent = '';
+                    title.textContent = 'room_dogcheck';
+                } else if (/\bherobrine\b/i.test(text)) {
+                    floweyState = 14;
+                    img.src = '';
+                    message.textContent = '';
+                    title.textContent = '';
+                } else if (/\begg\b/i.test(text) || (/\bman\b/i.test(text) && /\bbehind\b/i.test(text) && /\bthe\b/i.test(text) && /\btree\b/i.test(text))) {
+                    floweyState = 13;
+                    img.src = 'assets/gifs/Tree.gif';
+                    img.classList.add('stopped');
+                    message.textContent = '';
+                    title.textContent = 'He is behind the tree.';
                 } else if (text.includes('toriel')) {
-                    img.src = 'assets/FloweyToriel2.png';
+                    img.src = 'assets/sprites/FloweyToriel2.png';
                 } else if (text.includes('asgore')) {
-                    img.src = 'assets/FloweyPissed.png';
+                    img.src = 'assets/sprites/FloweyPissed.png';
                 } else if (text.includes('sans')) {
-                    img.src = 'assets/FloweySans.png';
-                    message.textContent = 'Calm down Flower the Sans.';
-                } else if ((text.includes('friend') && text.includes('inside')) || text.includes('gay')) {
-                    img.src = 'assets/FloweyConfused.png';
+                    img.src = 'assets/sprites/FloweySans.png';
+                    message.textContent = 'Calm down Flowey the Sans.';
+                } else if ((text.includes('friend') && text.includes('inside')) || text.includes('gay')) || /\bkill\b/i.test(text) && /\byourself\b/i.test(text))) {
+                    img.src = 'assets/sprites/FloweyConfused.png';
                 } else if (text.includes('pluey')) {
                     floweyState = 12;
-                    img.src = 'assets/Pluey.png';
+                    img.src = 'assets/sprites/Pluey.png';
                     message.textContent = 'Flowey?';
-                    img.style.animation = 'none';
+                    img.classList.add('stopped');
                     title.textContent = 'Pluey Pluey Pluey Pluey Pluey';
                     document.querySelector('.button').textContent = 'Tell Pluey';
-                    pageIcon.href = 'assets/Pluey.png';
+                    pageIcon.href = 'assets/sprites/Pluey.png';
                 } else if (text.includes('lets') && text.includes('destroy') && text.includes('this') && text.includes('world')) {
-                    img.src = 'assets/FloweySkullMouth.png';
+                    img.src = 'assets/sprites/FloweySkullMouth.png';
                 } else if (text.includes('it') && text.includes('s') && text.includes('killed') && text.includes('or') && text.includes('be') && text.includes('killed')) {
-                    img.src = 'assets/FloweyNiceSideum.png';
+                    img.src = 'assets/sprites/FloweyNiceSideum.png';
                 } else if (text.includes('you') && text.includes('are') && text.includes('an') && text.includes('pathetic') && text.includes('flower')) {
-                    img.src = 'assets/FloweySmile.png';
+                    img.src = 'assets/sprites/FloweySmile.png';
                 } else if (text.includes('stop') && text.includes('relax') && floweyState == 6) {
                     floweyState = 7;
-                    img.src = 'assets/FloweyPissed.png';
+                    img.src = 'assets/sprites/FloweyPissed.png';
                 } else if ((text.includes('deltarune') && text.includes('cancelled')) ||
                     (text.includes('dr') && text.includes('cancelled'))) {
-                    img.src = 'assets/FloweyHurt.png';
+                    img.src = 'assets/sprites/FloweyHurt.png';
                 } else if (text.includes('relax')) {
                     if (floweyState == 7) {
                         floweyState = 8;
-                        img.src = 'assets/FloweySide.png';
+                        img.src = 'assets/sprites/FloweySide.png';
                     } else if (floweyState == 8) {
                         floweyState = 9;
-                        img.src = 'assets/FloweyHappi.png';
-                        message.textContent = 'You calmed Flowey.';
-                        img.style.animation = 'none';
+                        img.src = 'assets/sprites/FloweyHappi.png';
+                        message.textContent = 'https://firelyn.github.io/flowey/A4F9-KL3P-Z8N1-Q2W3E/';
+                        img.classList.add('stopped');
                         title.textContent = 'Flowey | Calmed Down';
                     }
                 } else {
-                    img.src = 'assets/FloweyWink.png';
+                    img.src = 'assets/sprites/FloweyWink.png';
                     title.textContent = 'Flowey | Not Calmed';
                 }
 
                 textbox.value = '';
+            });
+
+            document.querySelector('.textbox').addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    document.querySelector('.button').click();
+                }
             });
         });
     </script>
 </head>
 <body>
     <div class="image-container">
-        <img src="assets/FloweySassy.png" alt="Flowey">
+        <img src="assets/sprites/FloweySassy.png" alt="Flowey">
     </div>
     <div class="message">Calm down Flowey the Flower.</div>
     <div class="spacer"></div>
@@ -245,7 +270,7 @@
         <button class="button">Tell Flowey</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.1
     </footer>
 </body>
 </html>
