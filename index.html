@@ -205,6 +205,10 @@
                     img.src = 'assets/gifs/Tree.gif';
                     img.classList.add('stopped');
                     message.textContent = '';
+                    imageContainer.style.width = 'auto';
+                    imageContainer.style.height = 'auto';
+                    img.style.width = '200px';
+                    img.style.height = 'auto';
                     title.textContent = 'He is behind the tree.';
                 } else if (text.includes('toriel')) {
                     img.src = 'assets/sprites/FloweyToriel2.png';
@@ -275,7 +279,7 @@
         <button class="button">Tell Flowey</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.13
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.14
     </footer>
 </body>
 </html>
