@@ -41,7 +41,7 @@
             75% { transform: translate(2px, -2px); }
             100% { transform: translate(-2px, 2px); }
         }
-        .textbox, .button, .music-button {
+        .textbox, .button, {
             border-radius: 10px;
             border: 2px solid #ffffff;
             padding: 5px;
@@ -50,18 +50,24 @@
             font-size: 12px;
             outline: none;
         }
+        .music-button {
+            padding: 5px;
+            background-color: black;
+            color: #000000;
+            font-size: 12px;
+        }
         .textbox {
             margin-right: 10px;
         }
-        .button, .music-button {
+        .button {
             margin-left: 10px;
             cursor: pointer;
         }
-        .button:hover, .music-button:hover {
+        .button:hover {
             background-color: gray;
             color: white;
         }
-        .button:active, .music-button:active {
+        .button:active {
             background-color: black;
             color: white;
         }
