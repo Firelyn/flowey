@@ -96,5 +96,15 @@
         <source src="../assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
         <source src="../assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
     </audio>
+
+        <script>
+        const audio = document.getElementById('background-audio');
+        function playAudio() {
+            audio.play().catch(error => {
+                console.error('Audio playback failed:', error);
+            });
+        }
+        document.body.addEventListener('click', playAudio, { once: true });
+    </script>
 </body>
 </html>
