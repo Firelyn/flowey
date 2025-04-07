@@ -189,12 +189,14 @@
                     img.src = 'assets/sprites/FloweyMe.png';
                 } else if (/\bdogcheck\b/i.test(text)) {
                     floweyState = 15;
+                    img.classList.add('stopped');
                     img.src = 'assets/gifs/DogMaraca.gif';
                     message.textContent = '';
                     title.textContent = 'room_dogcheck';
                 } else if (/\bherobrine\b/i.test(text)) {
                     floweyState = 14;
-                    img.src = '';
+                    img.classList.add('stopped');
+                    img.src = 'assets/sprites/Nothing.png';
                     message.textContent = '';
                     title.textContent = '';
                 } else if (/\begg\b/i.test(text) || (/\bman\b/i.test(text) && /\bbehind\b/i.test(text) && /\bthe\b/i.test(text) && /\btree\b/i.test(text))) {
@@ -207,6 +209,8 @@
                     img.src = 'assets/sprites/FloweyToriel2.png';
                 } else if (text.includes('asgore')) {
                     img.src = 'assets/sprites/FloweyPissed.png';
+                } else if (/\bnigger\b/i.test(text)) {
+                    img.src = 'assets/sprites/FloweyDisgusted.png';
                 } else if (text.includes('sans')) {
                     img.src = 'assets/sprites/FloweySans.png';
                     message.textContent = 'Calm down Flowey the Sans.';
@@ -270,7 +274,7 @@
         <button class="button">Tell Flowey</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.1
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.11
     </footer>
 </body>
 </html>
