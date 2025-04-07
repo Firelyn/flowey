@@ -15,8 +15,12 @@
             83.33% { background-color: #4B0082; }
             100% { background-color: #8B00FF; }
         }
-
+        
         body {
+            background-image: url('../assets/sprites/Background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -92,7 +96,7 @@
         <img class="asriel-behind" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
     </div>
     
-    <audio id="background-audio" autoplay hidden>
+    <audio id="background-audio" autoplay>
         <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
         <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
     </audio>
