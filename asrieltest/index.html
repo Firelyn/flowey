@@ -16,6 +16,24 @@
             100% { background-color: #8B00FF; }
         }
 
+        @keyframes infinity {
+            0% {
+                transform: translateX(0) translateY(0) scale(1.5);
+            }
+            25% {
+                transform: translateX(50px) translateY(-50px) scale(1.5);
+            }
+            50% {
+                transform: translateX(100px) translateY(0) scale(1.5);
+            }
+            75% {
+                transform: translateX(50px) translateY(50px) scale(1.5);
+            }
+            100% {
+                transform: translateX(0) translateY(0) scale(1.5);
+            }
+        }
+
         body {
             display: flex;
             justify-content: center;
@@ -27,10 +45,29 @@
             position: relative;
             animation: rainbow 3s linear infinite;
         }
+
+        .infinity-container {
+            position: relative;
+        }
+
+        .asriel {
+            position: absolute;
+            animation: infinity 5s linear infinite;
+        }
+
+        .asriel-behind {
+            position: absolute;
+            opacity: 0.5;
+            animation: infinity 5s linear infinite;
+            animation-delay: 0.5s;
+        }
     </style>
 </head>
 <body>
-    <audio id="background-music" src="assets/songs/HopesAndDreamsSong.ogg" autoplay></audio>
-    <img src="Asriel.png" alt="Asriel Dreemurr">
+    <audio id="background-music" src="HopesAndDreamsSong.ogg" autoplay></audio>
+    <div class="infinity-container">
+        <img class="asriel" src="Asriel.png" alt="Asriel Dreemurr">
+        <img class="asriel-behind" src="Asriel.png" alt="Asriel Dreemurr">
+    </div>
 </body>
 </html>
