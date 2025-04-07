@@ -51,6 +51,7 @@
             outline: none;
         }
         .music-button {
+            padding: 5px;
             background-color: transparent;
             color: #000000;
             font-size: 18px;
@@ -115,7 +116,9 @@
             document.body.appendChild(blackout);
 
             const NotCalmSong = new Audio('assets/songs/NotCalmSong.ogg');
+            NotCalmSong.loop = true;
             const CalmSong = new Audio('assets/songs/CalmSong.ogg');
+            CalmSong.loop = true;
 
             function Soul() {
                 if (floweyState == 10) {
