@@ -85,6 +85,13 @@
                 offset-distance: 100%;
             }
         }
+        
+        .audio-controls {
+            opacity: 0;
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
     </style>
 </head>
 <body>
@@ -96,9 +103,31 @@
         <img class="asriel-behind" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
     </div>
     
-    <audio id="background-audio" autoplay>
-      <source src="../assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
-      <source src="../assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
+    <audio id="background-audio" class="audio-controls">
+        <source src="../assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
+        <source src="../assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
     </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-audio');
+            var hiddenButton = document.createElement('button');
+            hiddenButton.style.position = 'absolute';
+            hiddenButton.style.top = '-9999px';
+            hiddenButton.style.left = '-9999px';
+            hiddenButton.textContent = 'Play Audio';
+            document.body.appendChild(hiddenButton);
+
+            hiddenButton.addEventListener('click', function() {
+                audio.play().catch(function(error) {
+                    console.log('Playback error:', error);
+                });
+            });
+            
+            setTimeout(function() {
+                hiddenButton.click();
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
