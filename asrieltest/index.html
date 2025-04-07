@@ -86,12 +86,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             const audioElement = document.getElementById('background-audio');
-            
-            audioElement.play().catch((error) => {
-                alert('Audio was prevented.');
-            });
-            
-            audioElement.muted = false;
+            setTimeout(() => {
+                audioElement.play().catch((error) => {
+                    alert('Audio was prevented.');
+                });
+                audioElement.muted = false;
+            }, 1000);
         });
     </script>
 </body>
