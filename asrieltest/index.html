@@ -84,12 +84,24 @@
     </audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const audio = new Audio('https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.ogg');
-            audio.loop = true;
-            audio.play().catch((error) => {
-                alert('Audio was prevented.');
-            });
+        document.addEventListener('DOMContentLoaded', () => {
+            const audioElement = document.getElementById('background-audio');
+            
+            const playAudio = () => {
+                audioElement.play().catch((error) => {
+                    console.error('Audio play error:', error);
+                });
+            };
+            
+            playAudio();
+            
+            if (audioElement.paused) {
+                const interactionHandler = () => {
+                    playAudio();
+                    document.body.removeEventListener('click', interactionHandler);
+                };
+                document.body.addEventListener('click', interactionHandler);
+            }
         });
     </script>
 </body>
