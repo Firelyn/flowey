@@ -92,7 +92,7 @@
         <img class="asriel-behind" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
     </div>
     
-    <audio id="background-audio" autoplay muted hidden>
+    <audio id="background-audio" autoplay hidden>
         <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
         <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
     </audio>
@@ -101,6 +101,9 @@
         window.addEventListener('load', function() {
             var audio = document.getElementById('background-audio');
             audio.muted = false;
+            audio.addEventListener('canplaythrough', function() {
+                audio.play();
+            }, false);
         });
     </script>
 </body>
