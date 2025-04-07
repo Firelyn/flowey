@@ -109,6 +109,9 @@
             padding: 10px;
             font-size: 18px;
             z-index: 9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .consent-banner button {
             margin: 0 5px;
@@ -125,12 +128,19 @@
             font-family: '8bitOperator', sans-serif;
             color: black;
         }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
     </style>
     
     <div class="consent-banner" id="consent-banner">
-        DO YOU WANT TO ALLOW THIS WEBSITE TO PLAY MUSIC?
-        <button class="yes" onclick="setMusicConsent(true)">YES</button>
-        <button class="no" onclick="setMusicConsent(false)">NO</button>
+        Do you want to allow this website to play music?
+        <div class="button-container">
+            <button class="yes" onclick="setMusicConsent(true)">Yes</button>
+            <button class="no" onclick="setMusicConsent(false)">No</button>
+        </div>
     </div>
     
     <script>
