@@ -17,66 +17,8 @@
             flex-direction: column;
             position: relative;
         }
-        #autoplay-unlock-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
     </style>
-    <script>
-        function autoplayUnlock(element) {
-            var context = new (window.AudioContext || window.webkitAudioContext)();
-        
-            return new Promise(function (resolve, reject) {
-                if (context.state === 'suspended') {
-                    var unlock = function unlock() {
-                        context.resume()
-                            .then(function () {
-                                window.removeEventListener('keydown', unlock);
-                                element.removeEventListener('click', unlock);
-                                element.removeEventListener('touchstart', unlock);
-                                element.removeEventListener('touchend', unlock);
-        
-                                resolve();
-                            }).catch(function (error) {
-                                reject(error);
-                            });
-                    };
-        
-                    window.addEventListener('keydown', unlock, false);
-                    element.addEventListener('click', unlock, false);
-                    element.addEventListener('touchstart', unlock, false);
-                    element.addEventListener('touchend', unlock, false);
-                } else {
-                    resolve();
-                }
-            });
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            var autoplayUnlockElement = document.getElementById('autoplay-unlock-overlay');
-            var audioElement = document.getElementById('audio-element');
-        
-            autoplayUnlock(autoplayUnlockElement)
-                .then(function() {
-                    document.body.removeChild(autoplayUnlockElement);
-                    audioElement.play();    
-                })
-                .catch(function(error) {
-                    console.error(error);
-            });
-        });
-    </script>
 </head>
 <body>
-    <div id="autoplay-unlock-overlay">Click or press a key to play audio</div>
-    <audio id="audio-element" src="../assets/songs/SecondPageSong.mp3" preload="auto"></audio>
 </body>
 </html>
