@@ -76,9 +76,24 @@
         <img class="asriel-behind2" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
         <img class="asriel-behind" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
     </div>
-    <audio autoplay>
-        <source src="../assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
+    <audio id="background-audio">
+        <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
         Your browser does not support the audio element.
     </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const audioElement = document.getElementById('background-audio');
+            
+            audioElement.addEventListener('canplaythrough', (event) => {
+                audioElement.play().catch((error) => {
+                    alert('Audio was prevented by browser. Please enable audio.');
+                });
+            });
+            
+            audioElement.addEventListener('error', (event) => {
+                alert('Error while loading audio file!');
+            });
+        });
+    </script>
 </body>
 </html>
