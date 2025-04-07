@@ -91,20 +91,12 @@
         <img class="asriel-behind2" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
         <img class="asriel-behind" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
     </div>
-
-    <audio id="background-audio" autoplay loop>
+    
+    <div id="player">
+    <audio autoplay hidden>
         <source src="../assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
         <source src="../assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
     </audio>
-
-        <script>
-        const audio = document.getElementById('background-audio');
-        function playAudio() {
-            audio.play().catch(error => {
-                console.error('Audio playback failed:', error);
-            });
-        }
-        document.body.addEventListener('click', playAudio, { once: true });
-    </script>
+    </div>
 </body>
 </html>
