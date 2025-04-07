@@ -15,56 +15,58 @@
             83.33% { background-color: #4B0082; }
             100% { background-color: #8B00FF; }
         }
-
-        @keyframes infinity {
-            0% {
-                transform: translateX(0) translateY(0) scale(1.5);
-            }
-            25% {
-                transform: translateX(50px) translateY(-50px) scale(1.5);
-            }
-            50% {
-                transform: translateX(100px) translateY(0) scale(1.5);
-            }
-            75% {
-                transform: translateX(50px) translateY(50px) scale(1.5);
-            }
-            100% {
-                transform: translateX(0) translateY(0) scale(1.5);
-            }
-        }
-
+        
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #000000;
-            flex-direction: column;
-            position: relative;
-            animation: rainbow 3s linear infinite;
+            animation: rainbow 10s linear infinite;
         }
-
+        
         .infinity-container {
             position: relative;
+            width: 200px;
+            height: 200px;
         }
-
+        
+        .asriel, .asriel-behind {
+            position: absolute;
+            width: 300px;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
         .asriel {
-            position: absolute;
-            animation: infinity 5s linear infinite;
+            animation: moveAlongPath 5s linear infinite;
         }
-
+        
         .asriel-behind {
-            position: absolute;
             opacity: 0.5;
-            animation: infinity 5s linear infinite;
+            animation: moveAlongPath 5s linear infinite;
             animation-delay: 0.5s;
+        }
+        
+        @keyframes moveAlongPath {
+            0% {
+                offset-distance: 0%;
+            }
+            100% {
+                offset-distance: 100%;
+            }
+        }
+        
+        .asriel, .asriel-behind {
+            offset-path: path('M 100 50 C 150 -50, 250 -50, 300 50 C 350 150, 250 150, 200 50 C 150 -50, 50 -50, 0 50 C -50 150, 50 150, 100 50 Z');
+            offset-rotate: auto;
         }
     </style>
 </head>
 <body>
-    <audio id="background-music" src="HopesAndDreamsSong.ogg" autoplay></audio>
+    <audio id="background-music" src="HopesAndDreamsSong.ogg" autoplay loop></audio>
     <div class="infinity-container">
         <img class="asriel" src="Asriel.png" alt="Asriel Dreemurr">
         <img class="asriel-behind" src="Asriel.png" alt="Asriel Dreemurr">
