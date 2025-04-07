@@ -143,15 +143,13 @@
         </div>
     </div>
 
-    <audio id="NotCalmMusic" src="assets/songs/NotCalmSong.ogg" loop></audio>
+    <audio id="NotCalmMusic" src="assets/songs/NotCalmSong.mp3" loop></audio>
     
     <script>
         function setMusicConsent(consent) {
             document.cookie = "musicConsent=" + consent + "; path=/; max-age=" + (60*60*24*365);
             document.getElementById('consent-banner').style.display = 'none';
-            if (consent) {
-                playMusic();
-            }
+            handleMusicConsent(consent);
         }
 
         function getCookie(name) {
@@ -165,30 +163,20 @@
             return "";
         }
 
-        function playMusic() {
+        function handleMusicConsent(consent) {
             const music = document.getElementById('NotCalmMusic');
-            music.play().catch(error => {
-                if (error.name === 'NotAllowedError') {
-                    console.log("Music play failed: ", error);
-                    alert("Please click anywhere on the page to start the music.");
-                    document.body.addEventListener('click', () => {
-                        music.play().catch(err => {
-                            console.error("Music play failed again: ", err);
-                        });
-                    }, { once: true });
-                } else {
-                    console.error("Music play failed: ", error);
-                }
-            });
+            if (consent === true || consent === "true") {
+                music.play();
+            } else {
+                music.pause();
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             let consent = getCookie("musicConsent");
             if (consent !== "") {
                 document.getElementById('consent-banner').style.display = 'none';
-                if (consent === "true") {
-                    playMusic();
-                }
+                handleMusicConsent(consent);
             }
         });
         
