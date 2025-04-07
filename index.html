@@ -112,8 +112,8 @@
             blackout.classList.add('blackout');
             document.body.appendChild(blackout);
 
-            const NotCalmSong = new Audio('path/to/notcalm.mp3');
-            const CalmSong = new Audio('path/to/calm.mp3');
+            const NotCalmSong = new Audio('assets/songs/NotCalmSong.ogg');
+            const CalmSong = new Audio('assets/songs/CalmSong.ogg');
 
             function Soul() {
                 if (floweyState == 10) {
@@ -297,11 +297,11 @@
 
             document.querySelector('.music-button').addEventListener('click', () => {
                 if (musicOn) {
-                    audio.pause();
+                    NotCalmSong.pause();
                     document.querySelector('.music-button').textContent = '🔇';
                     musicOn = false;
                 } else {
-                    audio.play();
+                    NotCalmSong.play();
                     document.querySelector('.music-button').textContent = '🔊';
                     musicOn = true;
                 }
@@ -321,7 +321,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.18
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.181
     </footer>
 </body>
 </html>
