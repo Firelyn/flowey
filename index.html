@@ -41,7 +41,7 @@
             75% { transform: translate(2px, -2px); }
             100% { transform: translate(-2px, 2px); }
         }
-        .textbox, .button {
+        .textbox, .button, .music-button {
             border-radius: 10px;
             border: 2px solid #ffffff;
             padding: 5px;
@@ -53,15 +53,15 @@
         .textbox {
             margin-right: 10px;
         }
-        .button {
+        .button, .music-button {
             margin-left: 10px;
             cursor: pointer;
         }
-        .button:hover {
+        .button:hover, .music-button:hover {
             background-color: gray;
             color: white;
         }
-        .button:active {
+        .button:active, .music-button:active {
             background-color: black;
             color: white;
         }
@@ -96,6 +96,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             let floweyState = 0;
+            let musicOn = false;
             const imageContainer = document.querySelector('.image-container');
             const pageIcon = document.getElementById('pageicon');
             const message = document.querySelector('.message');
@@ -104,6 +105,9 @@
             const blackout = document.createElement('div');
             blackout.classList.add('blackout');
             document.body.appendChild(blackout);
+
+            const audio = new Audio('path/to/your/music/file.mp3');
+            audio.loop = true;
 
             function Soul() {
                 if (floweyState == 10) {
@@ -284,6 +288,18 @@
                     document.querySelector('.button').click();
                 }
             });
+
+            document.querySelector('.music-button').addEventListener('click', () => {
+                if (musicOn) {
+                    audio.pause();
+                    document.querySelector('.music-button').textContent = 'Turn Music On';
+                    musicOn = false;
+                } else {
+                    audio.play();
+                    document.querySelector('.music-button').textContent = 'Turn Music Off';
+                    musicOn = true;
+                }
+            });
         });
     </script>
 </head>
@@ -296,6 +312,7 @@
     <div class="container">
         <input type="text" class="textbox" placeholder="">
         <button class="button">Tell Flowey</button>
+        <button class="music-button">Turn Music On</button>
     </div>
     <footer>
         This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.175
