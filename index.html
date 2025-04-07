@@ -92,8 +92,73 @@
             z-index: 10;
             display: none;
         }
+        .consent-banner {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+        }
+        .consent-banner button {
+            margin: 0 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .consent-banner .yes {
+            background-color: green;
+            color: white;
+        }
+        .consent-banner .no {
+            background-color: red;
+            color: white;
+        }
     </style>
+    
+    <div class="consent-banner" id="consent-banner">
+        Do you want to allow this website to play music?
+        <button class="yes" onclick="setMusicConsent(true)">Yes</button>
+        <button class="no" onclick="setMusicConsent(false)">No</button>
+    </div>
+    
     <script>
+        function setMusicConsent(consent) {
+            document.cookie = "musicConsent=" + consent + "; path=/; max-age=" + (60*60*24*365);
+            document.getElementById('consent-banner').style.display = 'none';
+            handleMusicConsent(consent);
+        }
+
+        function getCookie(name) {
+            let cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i].trim();
+                if (cookie.indexOf(name + '=') === 0) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return "";
+        }
+
+        function handleMusicConsent(consent) {
+            if (consent === "true") {
+                console.log("Music is allowed.");
+            } else {
+                console.log("Music is not allowed.");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let consent = getCookie("musicConsent");
+            if (consent !== "") {
+                document.getElementById('consent-banner').style.display = 'none';
+                handleMusicConsent(consent);
+            }
+        });
+        
         document.addEventListener('DOMContentLoaded', () => {
             let floweyState = 0;
             const imageContainer = document.querySelector('.image-container');
