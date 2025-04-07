@@ -80,29 +80,6 @@
 
     <audio id="background-audio" muted>
         <source src="https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
-        Your browser does not support the audio element.
     </audio>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const audioElement = document.getElementById('background-audio');
-            
-            const playAudio = () => {
-                audioElement.play().catch((error) => {
-                    console.error('Audio play error:', error);
-                });
-            };
-            
-            playAudio();
-            
-            if (audioElement.paused) {
-                const interactionHandler = () => {
-                    playAudio();
-                    document.body.removeEventListener('click', interactionHandler);
-                };
-                document.body.addEventListener('click', interactionHandler);
-            }
-        });
-    </script>
 </body>
 </html>
