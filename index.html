@@ -92,8 +92,67 @@
             z-index: 10;
             display: none;
         }
+        #music-consent-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        #music-consent-banner button {
+            margin: 0 10px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
     </style>
     <script>
+        function setCookie(name, value, days) {
+            const expires = new Date();
+            expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/';
+        }
+        
+        function getCookie(name) {
+            const cookieArr = document.cookie.split(';');
+            for (let i = 0; i < cookieArr.length; i++) {
+                const cookiePair = cookieArr[i].split('=');
+                if (name === cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+        
+        window.onload = function() {
+            const musicConsent = getCookie('musicConsent');
+            const banner = document.getElementById('music-consent-banner');
+            const audio = document.getElementById('background-music');
+
+            if (musicConsent === 'allowed') {
+                audio.play();
+                banner.style.display = 'none';
+            } else if (musicConsent === 'denied') {
+                banner.style.display = 'none';
+            } else {
+                banner.style.display = 'block';
+            }
+            
+            document.getElementById('allow-music').addEventListener('click', function() {
+                setCookie('musicConsent', 'allowed', 365);
+                audio.play();
+                banner.style.display = 'none';
+            });
+
+            document.getElementById('deny-music').addEventListener('click', function() {
+                setCookie('musicConsent', 'denied', 365);
+                banner.style.display = 'none';
+            });
+        };
+        
         document.addEventListener('DOMContentLoaded', () => {
             let floweyState = 0;
             const imageContainer = document.querySelector('.image-container');
