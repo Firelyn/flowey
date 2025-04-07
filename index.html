@@ -142,6 +142,8 @@
             <button class="no" onclick="setMusicConsent(false)">NO</button>
         </div>
     </div>
+
+    <audio id="NotCalmMusic" src="assets/songs/NotCalmSong.mp3" loop></audio>
     
     <script>
         function setMusicConsent(consent) {
@@ -162,10 +164,11 @@
         }
 
         function handleMusicConsent(consent) {
-            if (consent === "true") {
-                console.log("Music is allowed.");
+            const music = document.getElementById('NotCalmMusic');
+            if (consent === true || consent === "true") {
+                music.play();
             } else {
-                console.log("Music is not allowed.");
+                music.pause();
             }
         }
 
