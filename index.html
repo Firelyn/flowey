@@ -210,7 +210,7 @@
                 } else if (text.includes('sans')) {
                     img.src = 'assets/sprites/FloweySans.png';
                     message.textContent = 'Calm down Flowey the Sans.';
-                } else if ((text.includes('friend') && text.includes('inside')) || text.includes('gay')) || /\bkill\b/i.test(text) && /\byourself\b/i.test(text))) {
+                } else if ((text.includes('friend') && text.includes('inside')) || (text.includes('gay') || /\bkill\b/i.test(text) && /\byourself\b/i.test(text))) {
                     img.src = 'assets/sprites/FloweyConfused.png';
                 } else if (text.includes('pluey')) {
                     floweyState = 12;
