@@ -32,7 +32,7 @@
             height: 200px;
         }
 
-        .asriel, .asriel-behind, .asriel-behind2 {
+        .asriel, .asriel-behind, .asriel-behind2, .asriel-behind3, .asriel-behind4 {
             image-rendering: pixelated;
             position: absolute;
             width: 225px;
@@ -49,6 +49,12 @@
             z-index: 3;
         }
 
+        .asriel-behind4 {
+            z-index: 2;
+            opacity: 0.75;
+            animation-delay: 0.1s;
+        }
+
         .asriel-behind2 {
             z-index: 2;
             opacity: 0.5;
@@ -59,6 +65,12 @@
             z-index: 1;
             opacity: 0.25;
             animation-delay: 0.5s;
+        }
+
+        .asriel-behind3 {
+            z-index: 1;
+            opacity: 0.15;
+            animation-delay: 0.75s;
         }
 
         @keyframes moveAlongPath {
