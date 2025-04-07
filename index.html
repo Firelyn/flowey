@@ -114,6 +114,9 @@
             blackout.classList.add('blackout');
             document.body.appendChild(blackout);
 
+            let musicOn = false;
+            let currentTrack = null;
+            
             const musicTracks = {
                 NotCalm: new Audio('assets/songs/NotCalmSong.ogg'),
                 Calm: new Audio('assets/songs/CalmSong.ogg'),
@@ -123,18 +126,20 @@
                 musicTracks[key].loop = true;
             }
             
-            let musicOn = true;
-            let currentTrack = null;
-            
             function playMusic(name) {
+                stopAllMusic();
+            
+                currentTrack = name;
+            
+                if (musicOn) {
+                    musicTracks[name].play();
+                }
+            }
+            
+            function stopAllMusic() {
                 for (const key in musicTracks) {
                     musicTracks[key].pause();
                     musicTracks[key].currentTime = 0;
-                }
-            
-                currentTrack = name;
-                if (musicOn) {
-                    musicTracks[name].play();
                 }
             }
 
@@ -326,12 +331,10 @@
             
                 document.querySelector('.music-button').textContent = musicOn ? '🔊' : '🔇';
             
-                if (musicOn && currentTrack) {
+                if (!musicOn) {
+                    stopAllMusic();
+                } else if (currentTrack) {
                     musicTracks[currentTrack].play();
-                } else {
-                    for (const key in musicTracks) {
-                        musicTracks[key].pause();
-                    }
                 }
             });
         });
