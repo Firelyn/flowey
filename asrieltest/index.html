@@ -102,13 +102,15 @@
     </audio>
     
     <script>
-      document.addEventListener('click', function() {
-        var audio = document.getElementById('background-audio');
-        audio.muted = false;
-      }, { once: true });
-    
       var audio = document.getElementById('background-audio');
-    
+        
+      document.addEventListener('click', function() {
+        audio.muted = false;
+        audio.play().catch(function(error) {
+          console.error('Playback failed:', error);
+        });
+      }, { once: true });
+        
       document.addEventListener("visibilitychange", function () {
         if (document.visibilityState === "visible") {
           audio.play().catch(function(error) {
@@ -118,6 +120,12 @@
           audio.pause();
         }
       });
+        
+      if (document.visibilityState === "visible") {
+        audio.play().catch(function(error) {
+          console.error('Playback failed:', error);
+        });
+      }
     </script>
 </body>
 </html>
