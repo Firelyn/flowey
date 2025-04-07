@@ -27,27 +27,30 @@
         
         .infinity-container {
             position: relative;
-            width: 200px;
+            width: 400px;
             height: 200px;
         }
         
         .asriel, .asriel-behind {
             position: absolute;
-            width: 300px;
+            width: 150px;
             height: auto;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-        }
-        
-        .asriel {
+            offset-path: path('M 200,100 C 300,-50 500,-50 600,100 C 500,250 300,250 200,100 Z');
+            offset-rotate: 0deg;
             animation: moveAlongPath 5s linear infinite;
         }
         
         .asriel-behind {
-            opacity: 0.5;
-            animation: moveAlongPath 5s linear infinite;
+            opacity: 0.25;
             animation-delay: 0.5s;
+        }
+
+        .asriel-behind2 {
+            opacity: 0.5;
+            animation-delay: 0.25s;
         }
         
         @keyframes moveAlongPath {
@@ -58,18 +61,14 @@
                 offset-distance: 100%;
             }
         }
-        
-        .asriel, .asriel-behind {
-            offset-path: path('M 100 50 C 150 -50, 250 -50, 300 50 C 350 150, 250 150, 200 50 C 150 -50, 50 -50, 0 50 C -50 150, 50 150, 100 50 Z');
-            offset-rotate: auto;
-        }
     </style>
 </head>
 <body>
-    <audio id="background-music" src="HopesAndDreamsSong.ogg" autoplay loop></audio>
+    <audio id="background-music" src="HopesAndDreamsSong.ogg" autoplay></audio>
     <div class="infinity-container">
         <img class="asriel" src="Asriel.png" alt="Asriel Dreemurr">
         <img class="asriel-behind" src="Asriel.png" alt="Asriel Dreemurr">
+        <img class="asriel-behind2" src="Asriel.png" alt="Asriel Dreemurr">
     </div>
 </body>
 </html>
