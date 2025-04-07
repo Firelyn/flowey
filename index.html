@@ -102,7 +102,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: #5371b5;
+            background-color: transparent;
             color: white;
             text-align: center;
             font-family: '8bitOperator', sans-serif;
@@ -112,22 +112,28 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-transform: uppercase;
         }
+        
         .consent-banner button {
             margin: 0 5px;
             cursor: pointer;
             border: none;
+            background-color: transparent;
+            color: white;
+            font-family: '8bitOperator', sans-serif;
+            font-size: 18px;
+            text-transform: uppercase;
         }
+        
         .consent-banner .yes {
-            font-size: 18px;
-            font-family: '8bitOperator', sans-serif;
-            color: black;
+            color: white;
         }
+        
         .consent-banner .no {
-            font-size: 18px;
-            font-family: '8bitOperator', sans-serif;
-            color: black;
+            color: white;
         }
+        
         .button-container {
             display: flex;
             justify-content: center;
