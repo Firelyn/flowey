@@ -7,12 +7,6 @@
     <title>Flowey | Not Calmed</title>
     <link id="pageicon" rel="icon" href="assets/sprites/FloweyNice.png">
     <style>
-        @font-face {
-            font-family: '8bitOperator';
-            src: url('8bitOperatorPlus-Bold.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
         body {
             display: flex;
             justify-content: center;
@@ -98,88 +92,8 @@
             z-index: 10;
             display: none;
         }
-        .consent-banner {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: transparent;
-            color: white;
-            text-align: center;
-            font-family: '8bitOperator', sans-serif;
-            padding: 10px;
-            font-size: 18px;
-            z-index: 9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-transform: uppercase;
-        }
-        .consent-banner button {
-            font-family: '8bitOperator', sans-serif;
-            margin: 0 0px;
-            padding: 0px 10px;
-            cursor: pointer;
-        }
-        .consent-banner .yes {
-            background-color: transparent;
-            color: white;
-        }
-        .consent-banner .no {
-            background-color: transparent;
-            color: white;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
     </style>
-    
-    <div class="consent-banner" id="consent-banner">
-        DO YOU WANT TO ALLOW THIS WEBSITE TO PLAY MUSIC?
-        <div class="button-container">
-            <button class="yes" onclick="setMusicConsent(true)">YES</button>
-            <button class="no" onclick="setMusicConsent(false)">NO</button>
-        </div>
-    </div>
-
-    <audio id="NotCalmMusic" src="assets/songs/NotCalmSong.mp3" loop></audio>
-    
     <script>
-        function setMusicConsent(consent) {
-            document.cookie = "musicConsent=" + consent + "; path=/; max-age=" + (60*60*24*365);
-            document.getElementById('consent-banner').style.display = 'none';
-            handleMusicConsent(consent);
-        }
-
-        function getCookie(name) {
-            let cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                let cookie = cookies[i].trim();
-                if (cookie.indexOf(name + '=') === 0) {
-                    return cookie.substring(name.length + 1);
-                }
-            }
-            return "";
-        }
-
-        function handleMusicConsent(consent) {
-            const music = document.getElementById('NotCalmMusic');
-            if (consent === true || consent === "true") {
-                music.play();
-            } else {
-                music.pause();
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            let consent = getCookie("musicConsent");
-            if (consent !== "") {
-                document.getElementById('consent-banner').style.display = 'none';
-                handleMusicConsent(consent);
-            }
-        });
-        
         document.addEventListener('DOMContentLoaded', () => {
             let floweyState = 0;
             const imageContainer = document.querySelector('.image-container');
