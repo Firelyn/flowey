@@ -124,6 +124,7 @@
                 NobodyCame: new Audio('assets/songs/NobodyCameSong.ogg'),
                 Hides: new Audio('assets/songs/FloweyHidesSong.ogg'),
                 DogCheck: new Audio('assets/songs/DogCheckSong.ogg'),
+                LacedUp: new Audio('assets/songs/TsubiClubSong.mp3'),
             };
             
             for (const key in musicTracks) {
@@ -273,6 +274,12 @@
                     floweyState = 16;
                 } else if (/\bgreetings\b/i.test(text)) {
                     img.src = 'assets/sprites/FloweyNiceSideum.png';
+                } else if (/\blaced up\b/i.test(text)) {
+                    img.src = 'assets/sprites/Nothing.png';
+                    title.textContent = 'Easter Egg!';
+                    pageIcon.href = 'assets/sprites/Nothing.png';
+                    message.textContent = 'My fav song laced up - tsubi club. :) - Firelyn';
+                    playMusic('LacedUp');
                 } else if (/\bhelp\b/i.test(text) && /\bnoelle\b/i.test(text) && floweyState == 16) {
                     floweyState = 17;
                     blackout.style.display = 'block';
@@ -365,7 +372,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.185
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.187
     </footer>
 </body>
 </html>
