@@ -78,21 +78,9 @@
         <img class="asriel-behind" src="../assets/sprites/Asriel.png" alt="Asriel Dreemurr">
     </div>
 
-    <button id="playButton">Play Music</button>
-
-    <audio id="background-audio" muted>
+    <audio id="background-audio" autoplay loop controls>
         <source src="../assets/songs/HopesAndDreamsSong.mp3" type="audio/mpeg">
         <source src="../assets/songs/HopesAndDreamsSong.ogg" type="audio/ogg">
     </audio>
-
-    <script>
-        document.getElementById('playButton').addEventListener('click', function() {
-            var audio = document.getElementById('background-audio');
-            audio.muted = false;
-            audio.play().catch(function(error) {
-                console.log('Playback failed:', error);
-            });
-        });
-    </script>
 </body>
 </html>
