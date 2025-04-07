@@ -85,13 +85,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const audioElement = document.getElementById('background-audio');
-            setTimeout(() => {
-                audioElement.play().catch((error) => {
-                    alert('Audio was prevented.');
-                });
-                audioElement.muted = false;
-            }, 1000);
+            const audio = new Audio('https://firelyn.github.io/flowey/assets/songs/HopesAndDreamsSong.ogg');
+            audio.loop = true;
+            audio.play().catch((error) => {
+                alert('Audio was prevented.');
+            });
         });
     </script>
 </body>
