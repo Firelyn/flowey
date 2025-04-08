@@ -345,8 +345,8 @@
                     message.textContent = '(Flowey remembers shayy\'s genocides)';
                     title.textContent = 'What?';
                     img.style.animationDuration = '0.005s';
-                    playSoundEffect('Error');
                     stopAllMusic();
+                    playSoundEffect('Error');
                     img.src = 'assets/sprites/FloweyTraumatized.png';
                 } else if (/\bherobrine\b/i.test(text)) {
                     floweyState = 14;
