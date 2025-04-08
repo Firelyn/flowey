@@ -131,7 +131,7 @@
             const soundEffects = {
                 Noelle: new Audio('assets/sfx/Snowgrave.ogg'),
                 KillFlowey: new Audio('assets/sfx/Kill.wav'),
-                Error: new Audio('assets/sfx/Error.wav'),
+                Error: new Audio('assets/sfx/Error.ogg'),
             };
 
             soundEffects.Error.loop = true;
@@ -161,8 +161,16 @@
             
             function stopAllMusic() {
                 for (const key in musicTracks) {
-                    musicTracks[key].pause();
-                    musicTracks[key].currentTime = 0;
+                    if (musicTracks[key]) {
+                        musicTracks[key].pause();
+                        musicTracks[key].currentTime = 0;
+                    }
+                }
+                for (const key in soundEffects) {
+                    if (soundEffects[key]) {
+                        soundEffects[key].pause();
+                        soundEffects[key].currentTime = 0;
+                    }
                 }
             }
 
@@ -501,7 +509,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.23
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.232
     </footer>
 </body>
 </html>
