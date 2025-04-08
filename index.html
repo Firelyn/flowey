@@ -214,6 +214,7 @@
                     floweyState = 3;
                     img.src = 'assets/gifs/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
+                    title.textContent = 'Flowey is scared.';
                     img.classList.add('stopped');
                     playMusic('Hides');
                 } else if (text.includes('you') && text.includes('fertilizer') && text.includes('powered') && text.includes('dumbass')) {
@@ -228,6 +229,7 @@
                     floweyState = 3;
                     img.src = 'assets/gifs/FloweyHides.gif';
                     message.textContent = 'Flowey is scared of you.';
+                    title.textContent = 'Flowey is scared.';
                     img.classList.add('stopped');
                     playMusic('Hides');
                 } else if (text.includes('asriel')) {
@@ -254,6 +256,13 @@
                     message.textContent = '';
                     pageIcon.href = 'assets/sprites/Nothing.png';
                     title.textContent = 'But Nobody Came.';
+                } else if (/\bclover killed you\b/i.test(text)) {
+                    floweyState = 3;
+                    img.src = 'assets/gifs/FloweyHides.gif';
+                    message.textContent = 'Flowey is scared of you.';
+                    title.textContent = 'Flowey is scared.';
+                    img.classList.add('stopped');
+                    playMusic('Hides');
                 } else if (/\begg\b/i.test(text) || (/\bman\b/i.test(text) && /\bbehind\b/i.test(text) && /\bthe\b/i.test(text) && /\btree\b/i.test(text))) {
                     floweyState = 13;
                     img.src = 'assets/gifs/Tree.gif';
@@ -377,7 +386,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.19
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.195
     </footer>
 </body>
 </html>
