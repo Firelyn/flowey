@@ -131,7 +131,10 @@
             const soundEffects = {
                 Noelle: new Audio('assets/sfx/Snowgrave.ogg'),
                 KillFlowey: new Audio('assets/sfx/Kill.wav'),
+                Error: new Audio('assets/sfx/Error.wav'),
             };
+
+            soundEffects.Error.loop = true;
 
             function playSoundEffect(name) {
                 if (!musicOn) return;
@@ -229,6 +232,9 @@
                         if (/\bkill\b/i.test(text) || /\bflowey\b/i.test(text)) {
                             blackout.style.display = 'block';
                             playSoundEffect('KillFlowey');
+                            setTimeout(() => {
+                                playSoundEffect('KillFlowey');
+                            }, 500);
                             setTimeout(() => {
                                 img.src = 'assets/sprites/FloweyDead.png';
                                 message.textContent = '';
@@ -330,7 +336,8 @@
                     floweyState = 24;
                     message.textContent = '(Flowey remembers shayy\'s genocides)';
                     title.textContent = 'What?';
-                    img.style.animationDuration = '0.01s';
+                    img.style.animationDuration = '0.005s';
+                    playSoundEffect('Error');
                     stopAllMusic();
                     img.src = 'assets/sprites/FloweyTraumatized.png';
                 } else if (/\bherobrine\b/i.test(text)) {
@@ -494,7 +501,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.228
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.23
     </footer>
 </body>
 </html>
