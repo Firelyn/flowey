@@ -168,7 +168,7 @@
                     const seconds = Math.floor((diff / 1000) % 60);
             
                     document.querySelector('.message').textContent = 
-                        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                        `${days}D ${hours}H ${minutes}M ${seconds}S`;
                 }
             
                 updateCountdown();
@@ -203,7 +203,7 @@
                     return;
                 }
 
-                if (floweyState === 3 || floweyState === 11 || floweyState === 12 || floweyState === 15 || floweyState === 17 || floweyState === 13 || floweyState === 14 || floweyState === 9) {
+                if (floweyState === 3 || floweyState === 11 || floweyState === 12 || floweyState === 15 || floweyState === 17 || floweyState === 19 || floweyState === 13 || floweyState === 14 || floweyState === 9) {
                     if (floweyState == 11) {
                         message.textContent = 'You lost.';
                     } else if (floweyState == 3) {
@@ -216,6 +216,7 @@
                     } else if (floweyState == 14) {
                     } else if (floweyState == 15) {
                     } else if (floweyState == 17) {
+                    } else if (floweyState == 19) {
                     }
                     return;
                 }
@@ -224,7 +225,7 @@
                     pageIcon.href = 'assets/sprites/FloweyNice.png';
                     playMusic('NotCalm');
                 }
-
+                
                 message.textContent = 'Calm down Flowey the Flower.';
 
                 if ((text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) ||
@@ -321,8 +322,8 @@
                     message.textContent = 'My fav song laced up - tsubi club. :) - Firelyn';
                     playMusic('LacedUp');
                 } else if (/\btomorrow\b/i.test(text)) {
+                    floweyState = 19;
                     startCountdown();
-                    return;
                 } else if (/\bhelp\b/i.test(text) && /\bnoelle\b/i.test(text) && floweyState == 16) {
                     floweyState = 17;
                     blackout.style.display = 'block';
@@ -415,7 +416,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.198
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.2
     </footer>
 </body>
 </html>
