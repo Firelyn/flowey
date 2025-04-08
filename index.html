@@ -195,6 +195,10 @@
                     return;
                 }
 
+                if (floweyState === 18) {
+                    playMusic('NotCalm');
+                }
+
                 message.textContent = 'Calm down Flowey the Flower.';
 
                 if ((text.includes('i') && text.includes('have') && text.includes('soul') && text.includes('for') && text.includes('you')) ||
@@ -275,6 +279,7 @@
                 } else if (/\bgreetings\b/i.test(text)) {
                     img.src = 'assets/sprites/FloweyNiceSideum.png';
                 } else if (/\blaced up\b/i.test(text)) {
+                    floweyState = 18;
                     img.src = 'assets/sprites/Nothing.png';
                     title.textContent = 'Easter Egg!';
                     pageIcon.href = 'assets/sprites/Nothing.png';
@@ -372,7 +377,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.187
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.19
     </footer>
 </body>
 </html>
