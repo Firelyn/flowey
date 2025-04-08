@@ -328,6 +328,11 @@
                     floweyState = 20;
                     message.textContent = '';
                     playMusic('Homer');
+                    imageContainer.style.width = 'auto';
+                    imageContainer.style.height = 'auto';
+                    img.style.width = 'auto';
+                    img.style.height = 'auto';
+                    img.classList.add('stopped');
                     img.src = 'assets/sprites/Homer.png';
                     pageIcon.href = 'assets/sprites/Nothing.png';
                     title.textContent = 'Doh!';
@@ -338,6 +343,8 @@
                     floweyState = 16;
                 } else if (/\bgreetings\b/i.test(text)) {
                     img.src = 'assets/sprites/FloweyNiceSideum.png';
+                } else if (/\bhi\b/i.test(text)) {
+                    img.src = 'assets/sprites/FloweyNice.png';
                 } else if (/\blaced up\b/i.test(text)) {
                     floweyState = 18;
                     img.src = 'assets/sprites/Nothing.png';
@@ -441,7 +448,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.206
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.209
     </footer>
 </body>
 </html>
