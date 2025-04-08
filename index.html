@@ -194,7 +194,9 @@
             document.querySelector('.button').addEventListener('click', () => {
                 const textbox = document.querySelector('.textbox');
                 const text = textbox.value.toLowerCase();
-                message.textContent = '';
+                if (floweyState !== 19) {
+                    message.textContent = '';
+                }
 
                 if (text.includes('gaster')) {
                     blackout.style.display = 'block';
@@ -416,7 +418,7 @@
         <button class="music-button">🔇</button>
     </div>
     <footer>
-        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.2
+        This page is not a trademark of any LLC, it's simply made by firelyn.out | BETA 0.202
     </footer>
 </body>
 </html>
